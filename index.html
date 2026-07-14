@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Veronika | Model Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* PORTFOLIO */
+
+.portfolio{
+
+padding:120px 10%;
+
+}
+
+.section-title{
+
+text-align:center;
+margin-bottom:70px;
+
+}
+
+.section-title span{
+
+color:var(--blue);
+font-weight:600;
+letter-spacing:3px;
+
+}
+
+.section-title h2{
+
+font-size:58px;
+margin:15px 0;
+
+background:linear-gradient(90deg,var(--pink),var(--blue));
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+}
+
+.section-title p{
+
+color:#cfcfcf;
+max-width:700px;
+margin:auto;
+line-height:1.8;
+
+}
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:35px;
+
+}
+
+.card{
+
+position:relative;
+
+overflow:hidden;
+
+border-radius:28px;
+
+height:470px;
+
+cursor:pointer;
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.15);
+
+transition:.45s;
+
+}
+
+.card img{
+
+width:100%;
+height:100%;
+object-fit:cover;
+
+transition:.6s;
+
+}
+
+.card:hover{
+
+transform:translateY(-12px);
+
+box-shadow:
+
+0 25px 60px rgba(255,95,162,.2),
+
+0 25px 60px rgba(103,213,255,.2);
+
+}
+
+.card:hover img{
+
+transform:scale(1.08);
+
+}
+
+.overlay{
+
+position:absolute;
+
+bottom:0;
+
+width:100%;
+
+padding:30px;
+
+background:linear-gradient(transparent,rgba(0,0,0,.88));
+
+transform:translateY(100%);
+
+transition:.45s;
+
+}
+
+.card:hover .overlay{
+
+transform:translateY(0);
+
+}
+
+.overlay h3{
+
+font-size:28px;
+
+margin-bottom:8px;
+
+}
+
+.overlay p{
+
+opacity:.8;
+
+}
+
+:root{
+
+--pink:#ff5fa2;
+--blue:#67d5ff;
+--white:#ffffff;
+--dark:#121212;
+--glass:rgba(255,255,255,.16);
+
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:Poppins,sans-serif;
+}
+
+body{
+
+background:#090b18;
+overflow-x:hidden;
+color:white;
+
+}
+
+/* Animated Gradient */
+
+.bg{
+
+position:fixed;
+inset:0;
+z-index:-5;
+
+background:
+radial-gradient(circle at 20% 20%,rgba(255,95,162,.35),transparent 30%),
+radial-gradient(circle at 80% 30%,rgba(103,213,255,.35),transparent 30%),
+radial-gradient(circle at 50% 80%,rgba(255,95,162,.25),transparent 40%),
+linear-gradient(135deg,#090b18,#11152d,#090b18);
+
+animation:bgMove 12s infinite alternate ease-in-out;
+
+}
+
+@keyframes bgMove{
+
+0%{
+
+filter:hue-rotate(0deg);
+
+}
+
+100%{
+
+filter:hue-rotate(25deg);
+
+}
+
+}
+
+/* Floating Blobs */
+
+.blob{
+
+position:fixed;
+
+border-radius:50%;
+
+filter:blur(70px);
+
+opacity:.5;
+
+animation:float 12s infinite ease-in-out;
+
+z-index:-4;
+
+}
+
+.one{
+
+width:350px;
+height:350px;
+
+background:var(--pink);
+
+top:-80px;
+left:-100px;
+
+}
+
+.two{
+
+width:420px;
+height:420px;
+
+background:var(--blue);
+
+bottom:-120px;
+right:-120px;
+
+animation-delay:2s;
+
+}
+
+@keyframes float{
+
+50%{
+
+transform:translateY(-60px) translateX(30px);
+
+}
+
+}
+
+/* NAV */
+
+nav{
+
+position:fixed;
+top:20px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:min(1100px,90%);
+
+padding:15px 30px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:var(--glass);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:20px;
+
+z-index:100;
+
+}
+
+.logo{
+
+font-size:28px;
+
+font-weight:700;
+
+background:linear-gradient(90deg,var(--pink),var(--blue));
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+}
+
+nav ul{
+
+display:flex;
+
+gap:30px;
+
+list-style:none;
+
+}
+
+nav a{
+
+text-decoration:none;
+
+color:white;
+
+transition:.3s;
+
+font-weight:500;
+
+}
+
+nav a:hover{
+
+color:var(--blue);
+
+}
+
+/* HERO */
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:120px 10%;
+
+gap:80px;
+
+flex-wrap:wrap;
+
+}
+
+.left{
+
+flex:1;
+
+min-width:320px;
+
+}
+
+.badge{
+
+display:inline-block;
+
+padding:8px 18px;
+
+border-radius:40px;
+
+background:rgba(255,255,255,.12);
+
+border:1px solid rgba(255,255,255,.15);
+
+margin-bottom:25px;
+
+}
+
+h1{
+
+font-size:70px;
+
+line-height:1.05;
+
+margin-bottom:20px;
+
+}
+
+.gradient{
+
+background:linear-gradient(90deg,var(--pink),var(--blue));
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+}
+
+.subtitle{
+
+font-size:22px;
+
+opacity:.85;
+
+margin-bottom:25px;
+
+}
+
+.desc{
+
+max-width:550px;
+
+line-height:1.8;
+
+color:#d6d6d6;
+
+}
+
+.buttons{
+
+margin-top:45px;
+
+display:flex;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+.btn{
+
+padding:16px 34px;
+
+border-radius:50px;
+
+border:none;
+
+cursor:pointer;
+
+font-size:17px;
+
+font-weight:600;
+
+transition:.35s;
+
+}
+
+.primary{
+
+background:linear-gradient(90deg,var(--pink),var(--blue));
+
+color:white;
+
+box-shadow:0 0 30px rgba(103,213,255,.3);
+
+}
+
+.secondary{
+
+background:transparent;
+
+border:2px solid rgba(255,255,255,.3);
+
+color:white;
+
+}
+
+.btn:hover{
+
+transform:translateY(-6px) scale(1.03);
+
+}
+
+.right{
+
+flex:1;
+
+display:flex;
+
+justify-content:center;
+
+min-width:320px;
+
+}
+
+.photo{
+
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.photo-border{
+    position: relative;
+    width: 420px;
+    height: 560px;
+    padding: 5px;
+    border-radius: 40px;
+    overflow: hidden;
+
+    background: linear-gradient(
+        135deg,
+        #ff5fa2,
+        #67d5ff,
+        #ff5fa2,
+        #67d5ff
+    );
+
+    background-size: 400% 400%;
+    animation: borderMove 8s linear infinite;
+
+    box-shadow:
+        0 0 30px rgba(255,95,162,.35),
+        0 0 60px rgba(103,213,255,.35);
+}
+
+.photo-border img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* заповнює рамку без спотворення */
+    object-position: center; /* центрує фото */
+    border-radius: 35px;
+    display: block;
+}
+
+
+.photo-border:hover{
+
+transform:
+
+rotateX(6deg)
+
+rotateY(-6deg)
+
+scale(1.03);
+
+}
+
+.photo-border
+
+.photo span{
+
+font-size:20px;
+
+margin-top:20px;
+
+color:#ddd;
+
+}
+
+@keyframes floatCard{
+
+50%{
+
+transform:translateY(-15px);
+
+}
+
+}
+
+.scroll{
+
+position:absolute;
+
+bottom:30px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+font-size:34px;
+
+animation:bounce 2s infinite;
+
+}
+
+@keyframes bounce{
+
+50%{
+
+transform:translate(-50%,12px);
+
+}
+
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.hero{
+
+text-align:center;
+
+}
+
+h1{
+
+font-size:52px;
+
+}
+
+nav ul{
+
+display:none;
+
+}
+
+.photo{
+
+width:300px;
+
+height:400px;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="blob one"></div>
+
+<div class="blob two"></div>
+
+<nav>
+
+<div class="logo">
+
+VERONIKA
+
+</div>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+
+<li><a href="#">About</a></li>
+
+<li><a href="#">Gallery</a></li>
+
+<li><a href="#">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="left">
+
+<div class="badge">
+
+✨ MODEL PORTFOLIO
+
+</div>
+
+<h1>
+
+Hello, I'm
+
+<span class="gradient">Veronika</span>
+
+</h1>
+
+<div class="subtitle">
+
+Model • Creator • Developer
+
+</div>
+
+<p class="desc">
+
+Welcome to my personal portfolio.
+I love modeling, coding, creating beautiful things and learning new skills.
+Take a look around and discover my work.
+
+</p>
+
+<div class="buttons">
+
+
+<button class="btn primary"><a href="portfolio.html" class="btn primary">View Portfolio</a></button>
+
+
+
+<button class="btn secondary">Contact Me</button>
+
+</div>
+
+</div>
+
+<div class="right">
+
+<div class="photo">
+
+<div class="photo-border">
+
+<img src="images/ffff.jpg" alt="Veronika">
+
+</div>
+
+</div>
+
+</div>
+
+
+</section>
+
+
+</body>
+</html>
